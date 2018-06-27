@@ -8,10 +8,10 @@ COPY ./LinuxDockerTest.csproj ./LinuxDockerTest.csproj
 RUN dotnet restore 
 COPY . .
 WORKDIR /src/LinuxDockerTest
-RUN dotnet build LinuxDockerTest.csproj -c Release -o /app
+RUN dotnet build ./LinuxDockerTest.csproj -c Release -o /app
 
 FROM build AS publish
-RUN dotnet publish LinuxDockerTest.csproj -c Release -o /app
+RUN dotnet publish ./LinuxDockerTest.csproj -c Release -o /app
 
 FROM base AS final
 WORKDIR /app
