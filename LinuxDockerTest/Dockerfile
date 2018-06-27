@@ -4,8 +4,8 @@ EXPOSE 80
 
 FROM microsoft/aspnetcore-build:2.0 AS build
 WORKDIR /src
-COPY LinuxDockerTest/LinuxDockerTest.csproj LinuxDockerTest/
-RUN dotnet restore LinuxDockerTest/LinuxDockerTest.csproj
+COPY ./LinuxDockerTest.csproj ./LinuxDockerTest
+RUN dotnet restore ./LinuxDockerTest.csproj
 COPY . .
 WORKDIR /src/LinuxDockerTest
 RUN dotnet build LinuxDockerTest.csproj -c Release -o /app
